@@ -1,0 +1,27 @@
+{
+  "folders": [
+    {
+      "name": "CodeCraft",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.fontSize": 14,
+    "editor.lineHeight": 1.6,
+    "editor.fontFamily": "'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.iconTheme": "vs-seti",
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.fontFamily": "'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace"
+  },
+  "extensions": {
+    "recommendations": [
+      "bradlc.vscode-tailwindcss",
+      "esbenp.prettier-vscode",
+      "ritwickdey.liveserver",
+      "formulahendry.auto-rename-tag",
+      "christian-kohler.path-intellisense"
+    ]
+  }
+}

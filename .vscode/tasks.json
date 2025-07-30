@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Local Server",
+      "type": "shell",
+      "command": "python",
+      "args": ["-m", "http.server", "8080"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new"
+      },
+      "problemMatcher": [],
+      "detail": "Start Python HTTP server for CodeCraft"
+    },
+    {
+      "label": "Start Node Server",
+      "type": "shell",
+      "command": "npx",
+      "args": ["serve", ".", "-p", "8080"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new"
+      },
+      "problemMatcher": [],
+      "detail": "Start Node.js serve for CodeCraft"
+    },
+    {
+      "label": "Open in Browser",
+      "type": "shell",
+      "command": "code",
+      "args": ["--command", "liveServer.goOnline"],
+      "group": "build",
+      "detail": "Open CodeCraft in browser using Live Server"
+    },
+    {
+      "label": "Format All Files",
+      "type": "shell",
+      "command": "npx",
+      "args": ["prettier", "--write", "*.html", "*.css", "*.js"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": [],
+      "detail": "Format all HTML, CSS, and JS files"
+    }
+  ]
+}

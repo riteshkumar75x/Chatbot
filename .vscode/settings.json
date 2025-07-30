@@ -1,0 +1,67 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.wordWrap": "on",
+  "editor.minimap.enabled": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.inlineSuggest.enabled": true,
+  
+  // Tailwind CSS
+  "tailwindCSS.includeLanguages": {
+    "html": "html",
+    "javascript": "javascript",
+    "css": "css"
+  },
+  "tailwindCSS.emmetCompletions": true,
+  "css.validate": false,
+  "scss.validate": false,
+  
+  // HTML
+  "html.autoClosingTags": true,
+  "html.format.indentInnerHtml": true,
+  "html.suggest.html5": true,
+  
+  // JavaScript
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.suggest.autoImports": true,
+  "javascript.format.enable": true,
+  
+  // Live Server
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.port": 8080,
+  "liveServer.settings.CustomBrowser": "chrome",
+  "liveServer.settings.root": "/",
+  "liveServer.settings.file": "index.html",
+  
+  // File associations
+  "files.associations": {
+    "*.css": "css",
+    "*.js": "javascript",
+    "*.html": "html"
+  },
+  
+  // Exclude files from search
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.git": true
+  },
+  
+  // Emmet
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "html": "html"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  
+  // Auto save
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000
+}
