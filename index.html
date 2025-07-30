@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCraft - Professional Online Code Editor</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0F172A',
+                        accent: '#06D6A0',
+                        'accent-blue': '#118AB2',
+                        'glass': 'rgba(255, 255, 255, 0.1)',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'fade-in': 'fadeIn 1s ease-out',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-primary text-white font-inter overflow-x-hidden">
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/10 border-b border-white/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-accent to-accent-blue rounded-lg flex items-center justify-center">
+                        <i class="fas fa-code text-white text-sm"></i>
+                    </div>
+                    <span class="text-xl font-poppins font-bold text-white">CodeCraft</span>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-white hover:text-accent transition-colors duration-300">Home</a>
+                    <a href="#editor" class="text-white hover:text-accent transition-colors duration-300">Code Editor</a>
+                    <a href="#about" class="text-white hover:text-accent transition-colors duration-300">About</a>
+                    <div class="flex items-center space-x-4">
+                        <button class="px-4 py-2 text-white hover:text-accent transition-colors duration-300">Sign In</button>
+                        <button class="px-4 py-2 bg-gradient-to-r from-accent to-accent-blue text-white rounded-lg hover:scale-105 transform transition-transform duration-300">Sign Up</button>
+                    </div>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white hover:text-accent">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/10 backdrop-blur-md border-t border-white/20">
+            <div class="px-4 py-4 space-y-4">
+                <a href="#home" class="block text-white hover:text-accent transition-colors duration-300">Home</a>
+                <a href="#editor" class="block text-white hover:text-accent transition-colors duration-300">Code Editor</a>
+                <a href="#about" class="block text-white hover:text-accent transition-colors duration-300">About</a>
+                <div class="flex flex-col space-y-2">
+                    <button class="px-4 py-2 text-white hover:text-accent transition-colors duration-300 text-left">Sign In</button>
+                    <button class="px-4 py-2 bg-gradient-to-r from-accent to-accent-blue text-white rounded-lg hover:scale-105 transform transition-transform duration-300">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Animated Background -->
+        <div class="absolute inset-0">
+            <svg class="absolute w-full h-full" viewBox="0 0 1440 800" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#06D6A0;stop-opacity:0.3" />
+                        <stop offset="100%" style="stop-color:#118AB2;stop-opacity:0.1" />
+                    </linearGradient>
+                </defs>
+                <path class="animate-float" fill="url(#gradient1)" d="M0,320L48,309.3C96,299,192,277,288,277.3C384,277,480,299,576,298.7C672,299,768,277,864,250.7C960,224,1056,192,1152,202.7C1248,213,1344,267,1392,293.3L1440,320L1440,800L1392,800C1344,800,1248,800,1152,800C1056,800,960,800,864,800C768,800,672,800,576,800C480,800,384,800,288,800C192,800,96,800,48,800L0,800Z"></path>
+            </svg>
+            
+            <!-- Floating Blobs -->
+            <div class="absolute top-20 left-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl animate-pulse-slow"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-accent-blue/20 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 1s;"></div>
+        </div>
+        
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-poppins font-bold mb-6 animate-slide-up">
+                Code Your
+                <span class="bg-gradient-to-r from-accent to-accent-blue bg-clip-text text-transparent">
+                    Future
+                </span>
+            </h1>
+            <p class="text-xl sm:text-2xl text-gray-300 mb-8 animate-fade-in" style="animation-delay: 0.3s;">
+                Professional online code editor with AI assistance, real-time collaboration, and multi-language support
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style="animation-delay: 0.6s;">
+                <button class="px-8 py-4 bg-gradient-to-r from-accent to-accent-blue text-white font-semibold rounded-lg hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-accent/25">
+                    Start Coding Now
+                </button>
+                <button class="px-8 py-4 border-2 border-accent text-accent font-semibold rounded-lg hover:bg-accent hover:text-white transition-all duration-300">
+                    Watch Demo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Editor Section -->
+    <section id="editor" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl sm:text-5xl font-poppins font-bold mb-6">
+                    Powerful Code Editor
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Experience professional-grade coding with AI assistance, multi-language support, and real-time execution
+                </p>
+            </div>
+            
+            <!-- Editor Interface -->
+            <div class="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
+                <!-- Editor Header -->
+                <div class="bg-white/10 px-6 py-4 border-b border-white/10 flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <div class="flex space-x-2">
+                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                        </div>
+                        <select id="language-select" class="bg-white/10 text-white px-3 py-1 rounded border border-white/20 focus:outline-none focus:border-accent">
+                            <option value="python">Python</option>
+                            <option value="javascript">JavaScript</option>
+                            <option value="java">Java</option>
+                            <option value="cpp">C++</option>
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <button id="run-btn" class="px-4 py-2 bg-accent hover:bg-accent/80 text-white rounded-lg transition-colors duration-300 flex items-center space-x-2">
+                            <i class="fas fa-play"></i>
+                            <span>Run</span>
+                        </button>
+                        <button id="ai-assist-btn" class="px-4 py-2 bg-accent-blue hover:bg-accent-blue/80 text-white rounded-lg transition-colors duration-300 flex items-center space-x-2">
+                            <i class="fas fa-robot"></i>
+                            <span>AI Assist</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Editor Content -->
+                <div class="flex h-96">
+                    <!-- Code Area -->
+                    <div class="flex-1 relative">
+                        <textarea id="code-editor" class="w-full h-full bg-transparent text-white font-mono p-6 resize-none focus:outline-none" placeholder="// Start coding here...
+console.log('Hello, World!');" spellcheck="false"></textarea>
+                    </div>
+                    
+                    <!-- Terminal/Output -->
+                    <div class="w-1/3 border-l border-white/10 bg-black/20">
+                        <div class="px-4 py-2 bg-white/5 border-b border-white/10 text-sm text-gray-300">
+                            Terminal
+                        </div>
+                        <div id="terminal-output" class="p-4 h-full overflow-y-auto font-mono text-sm text-green-400">
+                            <div class="text-gray-400">Ready to execute code...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl sm:text-5xl font-poppins font-bold mb-6">
+                    About CodeCraft
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
+                    CodeCraft is a modern, professional online code editor designed for developers, students, and coding enthusiasts. 
+                    Experience seamless coding with AI assistance, real-time collaboration, and comprehensive language support.
+                </p>
+            </div>
+            
+            <!-- Features Grid -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white/5 backdrop-blur-md rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                    <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent-blue rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-code text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Multi-Language Support</h3>
+                    <p class="text-gray-300">Support for Python, JavaScript, Java, C++, and more with syntax highlighting and auto-completion.</p>
+                </div>
+                
+                <div class="bg-white/5 backdrop-blur-md rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                    <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent-blue rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-robot text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">AI-Powered Assistant</h3>
+                    <p class="text-gray-300">Get intelligent code suggestions, bug fixes, and explanations powered by advanced AI technology.</p>
+                </div>
+                
+                <div class="bg-white/5 backdrop-blur-md rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                    <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent-blue rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Real-time Rankings</h3>
+                    <p class="text-gray-300">Track your progress with real-time rankings based on code completion and task performance.</p>
+                </div>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="text-center">
+                <p class="text-lg text-gray-300 mb-6">Connect with us on social media</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="#" class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:scale-110 transform transition-all duration-300">
+                        <i class="fab fa-linkedin text-white text-xl"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-blue-500 hover:scale-110 transform transition-all duration-300">
+                        <i class="fab fa-facebook text-white text-xl"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-gray-600 hover:scale-110 transform transition-all duration-300">
+                        <i class="fas fa-globe text-white text-xl"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-purple-600 hover:scale-110 transform transition-all duration-300">
+                        <i class="fas fa-rocket text-white text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-gray-300 mb-4">
+                    Made with <span class="text-red-500 animate-pulse">❤</span> by You B Tech | 2025
+                </p>
+                <div class="flex justify-center space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-300 transform hover:scale-110">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-300 transform hover:scale-110">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-300 transform hover:scale-110">
+                        <i class="fab fa-discord text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
